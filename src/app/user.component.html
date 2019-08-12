@@ -1,0 +1,24 @@
+<h1>Hello {{title}}</h1>
+<!-- <h2>Hello {{ user.name }}. This is your detail:</h2>
+<div><label>id:</label> {{user.id}}</div>
+<div><label>name:</label> {{user.name}}</div>
+<div><label>email:</label> {{user.email}}</div>
+<br>
+<div>
+    <label>name:</label>
+    <input placeholder="Enter your name..." [(ngModel)]= "user.name">
+</div> -->
+<ul class="users">
+    <li *ngFor="let user of users" [class.selected] = "user === selectedUser" (click)="onSelect(user)">
+        <span class="badge">{{user.id}}</span> {{user.name}}
+    </li>
+</ul>
+
+<div *ngIf="selectedUser">
+    <h2>You selected: {{selectedUser.name}} with details:</h2>
+    <div><label for="">User id:</label> {{selectedUser.id}}</div>
+    <div class="">
+        <label for="">name:</label>
+        <input placeholder="Edit your name here" [(ngModel)] = "selectedUser.name" />
+    </div>
+</div>
